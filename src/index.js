@@ -4,10 +4,14 @@ import { Provider } from "react-redux";
 // --- inside-app imports -----------------------
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
+import DevTools from "./DevTools";
 
 render(
   <Provider store={store}>
-    <h1>Inicjalizacja projektu</h1>
+    <div>
+      <h1>Inicjalizacja projektu</h1>
+      <DevTools />
+    </div>
   </Provider>,
   document.getElementById("root")
 );
