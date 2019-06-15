@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 // --- inside-app imports -----------------------
 import * as serviceWorker from "./serviceWorker";
-import store from "./store";
+import store from "./store/index";
 import DevTools from "./DevTools";
 
 render(
