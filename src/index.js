@@ -5,7 +5,9 @@ import { Router, hashHistory } from "react-router";
 // --- inside-app imports -----------------------
 import * as serviceWorker from "./serviceWorker";
 import store from "./store/index";
+import routes from "./routes";
 import DevTools from "./DevTools";
+import styles from "./country.css";
 import { getCountries } from "./actions/actions-countries";
 
 render(
