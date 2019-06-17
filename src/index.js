@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
+import { Router, hashHistory } from "react-router";
 // --- inside-app imports -----------------------
 import * as serviceWorker from "./serviceWorker";
 import store from "./store/index";
@@ -10,7 +11,7 @@ import { getCountries } from "./actions/actions-countries";
 render(
   <Provider store={store}>
     <div>
-      <h1>Inicjalizacja projektu</h1>
+      <Router history={hashHistory} routes={routes} />
       <DevTools />
     </div>
   </Provider>,
