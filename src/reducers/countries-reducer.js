@@ -2,7 +2,8 @@ import {
   GET_COUNTRIES,
   GET_COUNTRY,
   SEARCH_COUNTRIES,
-  DELETE_COUNTRY
+  DELETE_COUNTRY,
+  SET_CONTINENT
 } from "../actions/actions-countries";
 import countriesData from "../data/countries.json";
 
@@ -44,6 +45,12 @@ const countriesReducer = function(state = initialState, action) {
         countries: notDeletedCountries,
         visibleCountries: notDeletedVisibleCountries
       });
+    // display countries of a given continent
+    case SET_CONTINENT:
+      const continentCountries = state.countries.filter(
+        country => country.continent === action.name
+      );
+      return Object.assign({}, state, { visibleCountries: continentCountries });
 
     default:
       return state;
