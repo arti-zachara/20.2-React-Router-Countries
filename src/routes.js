@@ -6,6 +6,7 @@ import Home from "./presentational/home.component";
 import Contact from "./presentational/contact.component";
 import NotFound from "./presentational/not-found.component";
 import CountryFlagContainer from "./containers/flag-container.component";
+import CountryDetailsContainer from "./containers/country-detail-container.component";
 
 export default (
   <Route path="/" component={Navigation}>
