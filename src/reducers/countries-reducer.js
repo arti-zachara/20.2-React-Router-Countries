@@ -1,7 +1,8 @@
 import {
   GET_COUNTRIES,
   GET_COUNTRY,
-  SEARCH_COUNTRIES
+  SEARCH_COUNTRIES,
+  DELETE_COUNTRY
 } from "../actions/actions-countries";
 import countriesData from "../data/countries.json";
 
@@ -23,12 +24,26 @@ const countriesReducer = function(state = initialState, action) {
         country => country.id === parseInt(action.id)
       );
       return Object.assign({}, state, { selectedCountry });
+
     // search contries that names match the phrase
     case SEARCH_COUNTRIES:
       const foundCountries = state.countries.filter(country =>
         country.name.toLowerCase().includes(action.searchText.toLowerCase())
       );
       return Object.assign({}, state, { visibleCountries: foundCountries });
+
+    // filter out country that is to be deleted
+    case DELETE_COUNTRY:
+      const notDeletedCountries = state.countries.filter(
+        country => country.id != action.id
+      );
+      const notDeletedVisibleCountries = state.visibleCountries.filter(
+        country => country.id != action.id
+      );
+      return Object.assign({}, state, {
+        countries: notDeletedCountries,
+        visibleCountries: notDeletedVisibleCountries
+      });
 
     default:
       return state;
